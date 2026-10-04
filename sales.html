@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sales | Restaurant Management</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+
+</head>
+
+
+<body>
+
+<div class="dashboard-container">
+
+
+    <!-- =========================================
+         SIDEBAR
+    ========================================= -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-logo">🍴</div>
+
+            <h2>Restaurant</h2>
+
+        </div>
+
+
+        <nav class="sidebar-menu">
+
+            <p class="menu-title">MAIN</p>
+
+            <a href="dashboard.html" class="menu-item">
+                🏠
+                <span>Dashboard</span>
+            </a>
+
+
+            <p class="menu-title">OPERATIONS</p>
+
+            <a href="take-order.html" class="menu-item">
+                🧾
+                <span>Take Order</span>
+            </a>
+
+            <a href="orders.html" class="menu-item">
+                📋
+                <span>Orders</span>
+            </a>
+
+            <a href="menu.html" class="menu-item">
+                🍔
+                <span>Menu</span>
+            </a>
+
+            <a href="inventory.html" class="menu-item">
+                📦
+                <span>Inventory</span>
+            </a>
+
+
+            <p class="menu-title">FINANCE</p>
+
+            <a href="sales.html" class="menu-item active">
+                💰
+                <span>Sales</span>
+            </a>
+
+            <a href="expenses.html" class="menu-item">
+                💸
+                <span>Expenses</span>
+            </a>
+
+            <a href="profitability.html" class="menu-item">
+                📊
+                <span>Profitability</span>
+            </a>
+
+
+            <p class="menu-title">ANALYTICS</p>
+
+            <a href="analytics.html" class="menu-item">
+                📈
+                <span>Analytics</span>
+            </a>
+
+            <a href="reports.html" class="menu-item">
+                📄
+                <span>Reports</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <a href="settings.html" class="menu-item">
+                ⚙️
+                <span>Settings</span>
+            </a>
+
+            <a href="login.html" class="menu-item logout">
+                🚪
+                <span>Logout</span>
+            </a>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =========================================
+         MAIN CONTENT
+    ========================================= -->
+
+    <main class="main-content">
+
+
+        <!-- =====================================
+             TOPBAR
+        ====================================== -->
+
+        <header class="topbar">
+
+            <div>
+
+                <h1>Sales</h1>
+
+                <p>
+                    Track restaurant revenue and sales performance.
+                </p>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =========================================
+             SALES SUMMARY
+        ========================================= -->
+
+        <section class="sales-summary">
+
+
+            <!-- TODAY'S SALES -->
+
+            <div class="sales-stat-card">
+
+                <div class="sales-stat-icon">
+                    💰
+                </div>
+
+                <div>
+
+                    <p>Today's Sales</p>
+
+                    <h2 id="todaySales">
+                        ₹0
+                    </h2>
+
+                    <span
+                        class="sales-positive"
+                        id="todaySalesInfo"
+                    >
+                        From completed orders
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- THIS WEEK -->
+
+            <div class="sales-stat-card">
+
+                <div class="sales-stat-icon blue">
+                    📈
+                </div>
+
+                <div>
+
+                    <p>This Week</p>
+
+                    <h2 id="weekSales">
+                        ₹0
+                    </h2>
+
+                    <span
+                        class="sales-positive"
+                        id="weekSalesInfo"
+                    >
+                        Weekly revenue
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- THIS MONTH -->
+
+            <div class="sales-stat-card">
+
+                <div class="sales-stat-icon purple">
+                    🗓️
+                </div>
+
+                <div>
+
+                    <p>This Month</p>
+
+                    <h2 id="monthSales">
+                        ₹0
+                    </h2>
+
+                    <span
+                        class="sales-positive"
+                        id="monthSalesInfo"
+                    >
+                        Monthly revenue
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- AVERAGE ORDER -->
+
+            <div class="sales-stat-card">
+
+                <div class="sales-stat-icon orange">
+                    🧾
+                </div>
+
+                <div>
+
+                    <p>Average Order</p>
+
+                    <h2 id="averageOrder">
+                        ₹0
+                    </h2>
+
+                    <span
+                        class="sales-positive"
+                        id="averageOrderInfo"
+                    >
+                        Completed orders
+                    </span>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================================
+             SALES OVERVIEW
+        ========================================= -->
+
+        <section class="sales-overview">
+
+
+            <!-- =====================================
+                 SALES CHART
+            ====================================== -->
+
+            <div class="sales-chart-panel">
+
+
+                <div class="sales-panel-header">
+
+                    <div>
+
+                        <h2>Sales Overview</h2>
+
+                        <p>
+                            Revenue from completed orders.
+                        </p>
+
+                    </div>
+
+
+                    <select id="salesPeriod">
+
+                        <option value="week">
+                            This Week
+                        </option>
+
+                        <option value="month">
+                            This Month
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <div class="sales-chart">
+
+
+                    <!-- Y AXIS -->
+
+                    <div
+                        class="sales-y-axis"
+                        id="salesYAxis"
+                    >
+
+                        <span>₹0</span>
+
+                        <span>₹0</span>
+
+                        <span>₹0</span>
+
+                        <span>₹0</span>
+
+                        <span>₹0</span>
+
+                    </div>
+
+
+
+                    <!-- CHART -->
+
+                    <div class="sales-chart-area">
+
+
+                        <div class="sales-grid"></div>
+
+
+                        <div
+                            class="sales-bars"
+                            id="salesBars"
+                        >
+
+                            <!-- JS WILL CREATE BARS -->
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =====================================
+                 PAYMENT METHODS
+            ====================================== -->
+
+            <div class="payment-panel">
+
+
+                <div class="sales-panel-header">
+
+                    <div>
+
+                        <h2>Payment Methods</h2>
+
+                        <p>
+                            Completed sales by payment method.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PAYMENT CIRCLE -->
+
+                <div
+                    class="payment-circle"
+                    id="paymentCircle"
+                >
+
+                    <div class="payment-circle-content">
+
+                        <span>Total Sales</span>
+
+                        <strong id="paymentTotal">
+                            ₹0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PAYMENT DETAILS -->
+
+                <div class="payment-details">
+
+
+                    <!-- CASH -->
+
+                    <div>
+
+                        <span class="payment-dot cash-dot"></span>
+
+                        <p>Cash</p>
+
+                        <strong id="cashSales">
+                            ₹0
+                        </strong>
+
+                    </div>
+
+
+                    <!-- UPI -->
+
+                    <div>
+
+                        <span class="payment-dot upi-dot"></span>
+
+                        <p>UPI</p>
+
+                        <strong id="upiSales">
+                            ₹0
+                        </strong>
+
+                    </div>
+
+
+                    <!-- CARD -->
+
+                    <div>
+
+                        <span class="payment-dot card-dot"></span>
+
+                        <p>Card</p>
+
+                        <strong id="cardSales">
+                            ₹0
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================================
+             RECENT TRANSACTIONS
+        ========================================= -->
+
+        <section class="transactions-panel">
+
+
+            <div class="transactions-header">
+
+                <div>
+
+                    <h2>Recent Transactions</h2>
+
+                    <p>
+                        Latest completed sales.
+                    </p>
+
+                </div>
+
+
+                <a href="orders.html">
+                    View All Orders →
+                </a>
+
+            </div>
+
+
+
+            <div
+                class="transactions-table"
+                id="transactionsTable"
+            >
+
+
+                <!-- TABLE HEADER -->
+
+                <div class="transaction-row transaction-heading">
+
+                    <span>Order ID</span>
+
+                    <span>Customer</span>
+
+                    <span>Items</span>
+
+                    <span>Payment</span>
+
+                    <span>Amount</span>
+
+                    <span>Date</span>
+
+                </div>
+
+
+                <!-- DYNAMIC TRANSACTIONS -->
+
+                <div id="transactionsContainer">
+
+                    <!-- sales.js will insert orders here -->
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+    </main>
+
+</div>
+
+
+
+<!-- =========================================
+     SALES JAVASCRIPT
+========================================= -->
+
+<script src="sales.js"></script>
+
+
+</body>
+
+</html>

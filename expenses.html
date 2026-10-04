@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Expenses | Restaurant Management</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <!-- ================================
+         SIDEBAR
+    ================================= -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-logo">🍴</div>
+            <h2>Restaurant</h2>
+        </div>
+
+        <nav class="sidebar-menu">
+
+            <p class="menu-title">MAIN</p>
+
+            <a href="dashboard.html" class="menu-item">
+                🏠
+                <span>Dashboard</span>
+            </a>
+
+
+            <p class="menu-title">OPERATIONS</p>
+
+            <a href="take-order.html" class="menu-item">
+                🧾
+                <span>Take Order</span>
+            </a>
+
+            <a href="orders.html" class="menu-item">
+                📋
+                <span>Orders</span>
+            </a>
+
+            <a href="menu.html" class="menu-item">
+                🍔
+                <span>Menu</span>
+            </a>
+
+            <a href="inventory.html" class="menu-item">
+                📦
+                <span>Inventory</span>
+            </a>
+
+
+            <p class="menu-title">FINANCE</p>
+
+            <a href="sales.html" class="menu-item">
+                💰
+                <span>Sales</span>
+            </a>
+
+            <a href="expenses.html" class="menu-item active">
+                💸
+                <span>Expenses</span>
+            </a>
+
+            <a href="profitability.html" class="menu-item">
+                📊
+                <span>Profitability</span>
+            </a>
+
+
+            <p class="menu-title">ANALYTICS</p>
+
+            <a href="analytics.html" class="menu-item">
+                📈
+                <span>Analytics</span>
+            </a>
+
+            <a href="reports.html" class="menu-item">
+                📄
+                <span>Reports</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <a href="settings.html" class="menu-item">
+                ⚙️
+                <span>Settings</span>
+            </a>
+
+            <a href="login.html" class="menu-item">
+                🚪
+                <span>Logout</span>
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================================
+         MAIN CONTENT
+    ================================= -->
+
+    <main class="main-content">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div>
+
+                <h1>Expenses</h1>
+
+                <p>
+                    Track and manage your restaurant expenses.
+                </p>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================================
+             EXPENSE SUMMARY CARDS
+        ================================= -->
+
+        <section class="dashboard-cards">
+
+
+            <!-- TODAY -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon expense-icon">
+                    💸
+                </div>
+
+                <div>
+
+                    <p>Today's Expenses</p>
+
+                    <h2 id="todayExpenses">
+                        ₹0
+                    </h2>
+
+                    <span class="negative" id="todayExpenseInfo">
+                        0 expenses
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- WEEK -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon sales-icon">
+                    📅
+                </div>
+
+                <div>
+
+                    <p>This Week</p>
+
+                    <h2 id="weekExpenses">
+                        ₹0
+                    </h2>
+
+                    <span class="negative" id="weekExpenseInfo">
+                        0 expenses
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- MONTH -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon orders-icon">
+                    📊
+                </div>
+
+                <div>
+
+                    <p>This Month</p>
+
+                    <h2 id="monthExpenses">
+                        ₹0
+                    </h2>
+
+                    <span class="negative" id="monthExpenseInfo">
+                        0 expenses
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- AVERAGE -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon profit-icon">
+                    🧾
+                </div>
+
+                <div>
+
+                    <p>Average Daily Expense</p>
+
+                    <h2 id="averageDailyExpense">
+                        ₹0
+                    </h2>
+
+                    <span class="positive" id="averageExpenseInfo">
+                        This month
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================
+             EXPENSE OVERVIEW
+        ================================= -->
+
+        <section class="dashboard-middle">
+
+
+            <!-- EXPENSE CHART -->
+
+            <div class="dashboard-panel">
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <h3>
+                            Expense Overview
+                        </h3>
+
+                        <p>
+                            Monthly expenses for this year.
+                        </p>
+
+                    </div>
+
+
+                    <select id="expensePeriod">
+
+                        <option value="thisYear">
+                            This Year
+                        </option>
+
+                        <option value="lastYear">
+                            Last Year
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="chart">
+
+
+                    <!-- Y AXIS -->
+
+                    <div
+                        class="chart-y-axis"
+                        id="expenseYAxis"
+                    >
+                    </div>
+
+
+                    <!-- CHART AREA -->
+
+                    <div class="chart-area">
+
+                        <div class="chart-grid"></div>
+
+                        <div
+                            class="bars"
+                            id="expenseBars"
+                        >
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================================
+                 EXPENSE CATEGORIES
+            ================================= -->
+
+            <div class="dashboard-panel">
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <h3>
+                            Expense Categories
+                        </h3>
+
+                        <p>
+                            This month's breakdown.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="expense-category-list"
+                    id="expenseCategoryList"
+                >
+
+                    <!-- Dynamic categories will appear here -->
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================
+             RECENT EXPENSES
+        ================================= -->
+
+        <section class="dashboard-panel recent-expenses">
+
+
+            <div class="panel-header">
+
+                <div>
+
+                    <h3>
+                        Recent Expenses
+                    </h3>
+
+                    <p>
+                        Latest recorded restaurant expenses.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="add-expense-btn"
+                    id="openExpenseBtn"
+                >
+                    + Add Expense
+                </button>
+
+            </div>
+
+
+            <div class="expense-table">
+
+
+                <!-- TABLE HEADER -->
+
+                <div class="expense-row expense-heading">
+
+                    <span>
+                        Expense ID
+                    </span>
+
+                    <span>
+                        Date
+                    </span>
+
+                    <span>
+                        Category
+                    </span>
+
+                    <span>
+                        Description
+                    </span>
+
+                    <span>
+                        Amount
+                    </span>
+
+                    <span>
+                        Status
+                    </span>
+
+                </div>
+
+
+                <!-- DYNAMIC EXPENSES -->
+
+                <div id="expensesContainer">
+
+                    <!-- Expenses will appear here -->
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================
+             ADD EXPENSE MODAL
+        ================================= -->
+
+        <div
+            class="expense-modal"
+            id="expenseForm"
+        >
+
+            <div class="expense-form">
+
+
+                <!-- FORM HEADER -->
+
+                <div class="expense-form-header">
+
+                    <div>
+
+                        <h2>
+                            Add New Expense
+                        </h2>
+
+                        <p>
+                            Enter the details of the restaurant expense.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        class="close-expense"
+                        id="closeExpenseBtn"
+                    >
+                        ×
+                    </button>
+
+                </div>
+
+
+                <!-- FORM -->
+
+                <div class="expense-form-grid">
+
+
+                    <!-- CATEGORY -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Category
+                        </label>
+
+                        <select id="expenseCategory">
+
+                            <option value="Food & Ingredients">
+                                Food & Ingredients
+                            </option>
+
+                            <option value="Staff Salaries">
+                                Staff Salaries
+                            </option>
+
+                            <option value="Utilities">
+                                Utilities
+                            </option>
+
+                            <option value="Rent">
+                                Rent
+                            </option>
+
+                            <option value="Other Expenses">
+                                Other Expenses
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- DATE -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Expense Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="expenseDate"
+                        >
+
+                    </div>
+
+
+                    <!-- DESCRIPTION -->
+
+                    <div class="form-group full-width">
+
+                        <label>
+                            Description
+                        </label>
+
+                        <input
+                            type="text"
+                            id="expenseDescription"
+                            placeholder="e.g. Fresh vegetables, electricity bill..."
+                        >
+
+                    </div>
+
+
+                    <!-- AMOUNT -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Amount
+                        </label>
+
+                        <input
+                            type="number"
+                            id="expenseAmount"
+                            placeholder="₹ Enter amount"
+                            min="1"
+                        >
+
+                    </div>
+
+
+                    <!-- PAYMENT -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Payment Method
+                        </label>
+
+                        <select id="expensePayment">
+
+                            <option value="Cash">
+                                Cash
+                            </option>
+
+                            <option value="UPI">
+                                UPI
+                            </option>
+
+                            <option value="Card">
+                                Card
+                            </option>
+
+                            <option value="Bank Transfer">
+                                Bank Transfer
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- STATUS -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Status
+                        </label>
+
+                        <select id="expenseStatus">
+
+                            <option value="Paid">
+                                Paid
+                            </option>
+
+                            <option value="Pending">
+                                Pending
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FORM ACTIONS -->
+
+                <div class="expense-form-actions">
+
+                    <button
+                        class="cancel-expense"
+                        id="cancelExpenseBtn"
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        class="save-expense"
+                        id="saveExpenseBtn"
+                    >
+                        Save Expense
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </main>
+
+</div>
+
+
+<!-- EXPENSE JAVASCRIPT -->
+
+<script src="expenses.js"></script>
+
+</body>
+
+</html>

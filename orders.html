@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Orders | Restaurant Management</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+
+</head>
+
+
+<body>
+
+    <div class="dashboard-container">
+
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar">
+
+            <div class="brand">
+
+                <div class="brand-logo">🍴</div>
+
+                <h2>Restaurant</h2>
+
+            </div>
+
+
+            <nav class="sidebar-menu">
+
+                <p class="menu-title">MAIN</p>
+
+                <a href="dashboard.html" class="menu-item">
+                    🏠
+                    <span>Dashboard</span>
+                </a>
+
+
+                <p class="menu-title">OPERATIONS</p>
+
+                <a href="take-order.html" class="menu-item">
+                    🧾
+                    <span>Take Order</span>
+                </a>
+
+
+                <a href="orders.html" class="menu-item active">
+                    📋
+                    <span>Orders</span>
+                </a>
+
+
+                <a href="menu.html" class="menu-item">
+                    🍔
+                    <span>Menu</span>
+                </a>
+
+
+                <a href="inventory.html" class="menu-item">
+                    📦
+                    <span>Inventory</span>
+                </a>
+
+
+                <p class="menu-title">FINANCE</p>
+
+
+                <a href="sales.html" class="menu-item">
+                    💰
+                    <span>Sales</span>
+                </a>
+
+
+                <a href="expenses.html" class="menu-item">
+                    💸
+                    <span>Expenses</span>
+                </a>
+
+
+                <a href="profitability.html" class="menu-item">
+                    📊
+                    <span>Profitability</span>
+                </a>
+
+
+                <p class="menu-title">ANALYTICS</p>
+
+
+                <a href="analytics.html" class="menu-item">
+                    📈
+                    <span>Analytics</span>
+                </a>
+
+
+                <a href="reports.html" class="menu-item">
+                    📄
+                    <span>Reports</span>
+                </a>
+
+            </nav>
+
+
+            <div class="sidebar-bottom">
+
+                <a href="settings.html" class="menu-item">
+                    ⚙️
+                    <span>Settings</span>
+                </a>
+
+
+                <a href="login.html" class="menu-item">
+                    🚪
+                    <span>Logout</span>
+                </a>
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- MAIN CONTENT -->
+
+        <main class="main-content">
+
+
+            <!-- TOPBAR -->
+
+            <header class="topbar">
+
+                <div>
+
+                    <h1>Orders</h1>
+
+                    <p>Manage and track all restaurant orders.</p>
+
+                </div>
+
+            </header>
+
+
+
+            <!-- ORDERS PAGE -->
+
+            <section class="orders-page">
+
+
+                <!-- SEARCH + FILTERS -->
+
+                <div class="orders-toolbar">
+
+
+                    <div class="search-orders">
+
+                        <input
+                            type="text"
+                            placeholder="🔍 Search order..."
+                            id="orderSearch"
+                        >
+
+                    </div>
+
+
+
+                    <div class="order-filters">
+
+
+                        <select id="dateFilter">
+
+                            <option>Today</option>
+
+                            <option>This Week</option>
+
+                            <option>This Month</option>
+
+                            <option>All Time</option>
+
+                        </select>
+
+
+
+                        <select id="statusFilter">
+
+                            <option>All Status</option>
+
+                            <option>Pending</option>
+
+                            <option>Preparing</option>
+
+                            <option>Ready</option>
+
+                            <option>Completed</option>
+
+                            <option>Cancelled</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ORDERS PANEL -->
+
+                <div class="orders-panel">
+
+
+                    <div class="orders-table-header">
+
+                        <h2>Recent Orders</h2>
+
+                        <span id="ordersCount">
+                            Orders
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- ORDERS TABLE -->
+
+                    <div class="orders-table">
+
+
+                        <!-- TABLE HEADER -->
+
+                        <div class="table-row table-heading">
+
+                            <span>Order ID</span>
+
+                            <span>Customer</span>
+
+                            <span>Table</span>
+
+                            <span>Items</span>
+
+                            <span>Amount</span>
+
+                            <span>Payment</span>
+
+                            <span>Status</span>
+
+                            <span>Action</span>
+
+                        </div>
+
+
+
+                        <!-- DYNAMIC ORDERS WILL APPEAR HERE -->
+
+                        <div id="ordersContainer"></div>
+
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+
+        </main>
+
+
+    </div>
+
+
+
+    <!-- ORDERS JAVASCRIPT -->
+
+    <script src="orders.js"></script>
+
+
+</body>
+
+</html>

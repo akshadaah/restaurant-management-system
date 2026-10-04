@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Profitability | Restaurant Management</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+
+</head>
+
+
+<body>
+
+<div class="dashboard-container">
+
+
+    <!-- ================================
+         SIDEBAR
+    ================================= -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-logo">
+                🍴
+            </div>
+
+            <h2>
+                Restaurant
+            </h2>
+
+        </div>
+
+
+        <nav class="sidebar-menu">
+
+            <p class="menu-title">
+                MAIN
+            </p>
+
+
+            <a href="dashboard.html" class="menu-item">
+                🏠
+                <span>Dashboard</span>
+            </a>
+
+
+            <p class="menu-title">
+                OPERATIONS
+            </p>
+
+
+            <a href="take-order.html" class="menu-item">
+                🧾
+                <span>Take Order</span>
+            </a>
+
+
+            <a href="orders.html" class="menu-item">
+                📋
+                <span>Orders</span>
+            </a>
+
+
+            <a href="menu.html" class="menu-item">
+                🍔
+                <span>Menu</span>
+            </a>
+
+
+            <a href="inventory.html" class="menu-item">
+                📦
+                <span>Inventory</span>
+            </a>
+
+
+            <p class="menu-title">
+                FINANCE
+            </p>
+
+
+            <a href="sales.html" class="menu-item">
+                💰
+                <span>Sales</span>
+            </a>
+
+
+            <a href="expenses.html" class="menu-item">
+                💸
+                <span>Expenses</span>
+            </a>
+
+
+            <a href="profitability.html" class="menu-item active">
+                📊
+                <span>Profitability</span>
+            </a>
+
+
+            <p class="menu-title">
+                ANALYTICS
+            </p>
+
+
+            <a href="analytics.html" class="menu-item">
+                📈
+                <span>Analytics</span>
+            </a>
+
+
+            <a href="reports.html" class="menu-item">
+                📄
+                <span>Reports</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <a href="settings.html" class="menu-item">
+                ⚙️
+                <span>Settings</span>
+            </a>
+
+
+            <a href="login.html" class="menu-item">
+                🚪
+                <span>Logout</span>
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================================
+         MAIN CONTENT
+    ================================= -->
+
+    <main class="main-content">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div>
+
+                <h1>
+                    Profitability
+                </h1>
+
+                <p>
+                    Understand your restaurant's financial performance.
+                </p>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================================
+             PROFIT SUMMARY
+        ================================= -->
+
+        <section class="dashboard-cards">
+
+
+            <!-- TOTAL REVENUE -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon sales-icon">
+                    💰
+                </div>
+
+                <div>
+
+                    <p>
+                        Total Revenue
+                    </p>
+
+                    <h2 id="totalRevenue">
+                        ₹0
+                    </h2>
+
+                    <span class="positive" id="revenueInfo">
+                        From completed orders
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- TOTAL EXPENSES -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon expense-icon">
+                    💸
+                </div>
+
+                <div>
+
+                    <p>
+                        Total Expenses
+                    </p>
+
+                    <h2 id="totalExpenses">
+                        ₹0
+                    </h2>
+
+                    <span class="negative" id="expenseInfo">
+                        From paid expenses
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- NET PROFIT -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon profit-icon">
+                    📈
+                </div>
+
+                <div>
+
+                    <p>
+                        Net Profit
+                    </p>
+
+                    <h2 id="netProfit">
+                        ₹0
+                    </h2>
+
+                    <span class="positive" id="profitInfo">
+                        Revenue − Expenses
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROFIT MARGIN -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon orders-icon">
+                    📊
+                </div>
+
+                <div>
+
+                    <p>
+                        Profit Margin
+                    </p>
+
+                    <h2 id="profitMargin">
+                        0%
+                    </h2>
+
+                    <span class="positive" id="marginInfo">
+                        Based on total revenue
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================
+             REVENUE VS EXPENSES
+        ================================= -->
+
+        <section class="dashboard-middle">
+
+
+            <!-- CHART -->
+
+            <div class="dashboard-panel">
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <h3>
+                            Revenue vs Expenses
+                        </h3>
+
+                        <p>
+                            Monthly financial comparison.
+                        </p>
+
+                    </div>
+
+
+                    <select id="profitPeriod">
+
+                        <option value="thisYear">
+                            This Year
+                        </option>
+
+                        <option value="lastYear">
+                            Last Year
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="profit-chart">
+
+
+                    <!-- Y AXIS -->
+
+                    <div
+                        class="profit-chart-y-axis"
+                        id="profitYAxis"
+                    >
+                    </div>
+
+
+                    <!-- CHART AREA -->
+
+                    <div class="profit-chart-area">
+
+                        <div class="chart-grid">
+                        </div>
+
+
+                        <div
+                            class="profit-bars"
+                            id="profitBars"
+                        >
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- LEGEND -->
+
+                <div class="chart-legend">
+
+                    <span>
+
+                        <i class="legend-dot revenue-legend">
+                        </i>
+
+                        Revenue
+
+                    </span>
+
+
+                    <span>
+
+                        <i class="legend-dot expense-legend">
+                        </i>
+
+                        Expenses
+
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================================
+                 PROFIT ANALYSIS
+            ================================= -->
+
+            <div class="dashboard-panel profit-analysis-panel">
+
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <h3>
+                            Profit Analysis
+                        </h3>
+
+                        <p>
+                            Current month's performance.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PROFIT CIRCLE -->
+
+                <div
+                    class="profit-circle large-profit-circle"
+                    id="profitCircle"
+                >
+
+                    <div class="circle-content">
+
+                        <span>
+                            Net Profit
+                        </span>
+
+                        <strong id="currentMonthProfit">
+                            ₹0
+                        </strong>
+
+                        <small id="currentMonthMargin">
+                            0% margin
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <!-- HEALTH -->
+
+                <div
+                    class="profit-health"
+                    id="profitHealth"
+                >
+
+                    <span
+                        class="profit-status"
+                        id="profitStatus"
+                    >
+                        Healthy
+                    </span>
+
+                    <p id="profitHealthText">
+
+                        Your restaurant's profitability
+                        will appear here.
+
+                    </p>
+
+                </div>
+
+
+                <!-- BREAKDOWN -->
+
+                <div class="profit-breakdown">
+
+                    <div>
+
+                        <span>
+                            Revenue
+                        </span>
+
+                        <strong id="currentMonthRevenue">
+                            ₹0
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Expenses
+                        </span>
+
+                        <strong id="currentMonthExpenses">
+                            ₹0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================
+             MONTHLY PROFIT
+        ================================= -->
+
+        <section class="dashboard-panel monthly-profit-panel">
+
+
+            <div class="panel-header">
+
+                <div>
+
+                    <h3>
+                        Monthly Profit
+                    </h3>
+
+                    <p>
+                        Profit generated during each month.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="monthly-profit-list"
+                id="monthlyProfitList"
+            >
+
+                <!-- Dynamic monthly profit rows -->
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+<!-- JAVASCRIPT -->
+
+<script src="profitability.js"></script>
+
+</body>
+
+</html>

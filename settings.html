@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Settings | Restaurant Management</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+
+</head>
+
+
+<body>
+
+<div class="dashboard-container">
+
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-logo">
+                🍴
+            </div>
+
+            <h2>Restaurant</h2>
+
+        </div>
+
+
+        <nav class="sidebar-menu">
+
+
+            <p class="menu-title">
+                MAIN
+            </p>
+
+
+            <a href="dashboard.html" class="menu-item">
+                🏠
+                <span>Dashboard</span>
+            </a>
+
+
+            <p class="menu-title">
+                OPERATIONS
+            </p>
+
+
+            <a href="take-order.html" class="menu-item">
+                🧾
+                <span>Take Order</span>
+            </a>
+
+
+            <a href="orders.html" class="menu-item">
+                📋
+                <span>Orders</span>
+            </a>
+
+
+            <a href="menu.html" class="menu-item">
+                🍔
+                <span>Menu</span>
+            </a>
+
+
+            <a href="inventory.html" class="menu-item">
+                📦
+                <span>Inventory</span>
+            </a>
+
+
+            <p class="menu-title">
+                FINANCE
+            </p>
+
+
+            <a href="sales.html" class="menu-item">
+                💰
+                <span>Sales</span>
+            </a>
+
+
+            <a href="expenses.html" class="menu-item">
+                💸
+                <span>Expenses</span>
+            </a>
+
+
+            <a href="profitability.html" class="menu-item">
+                📊
+                <span>Profitability</span>
+            </a>
+
+
+            <p class="menu-title">
+                ANALYTICS
+            </p>
+
+
+            <a href="analytics.html" class="menu-item">
+                📈
+                <span>Analytics</span>
+            </a>
+
+
+            <a href="reports.html" class="menu-item">
+                📄
+                <span>Reports</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+
+            <a
+                href="settings.html"
+                class="menu-item active"
+            >
+                ⚙️
+                <span>Settings</span>
+            </a>
+
+
+            <a
+                href="login.html"
+                class="menu-item"
+            >
+                🚪
+                <span>Logout</span>
+            </a>
+
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main-content">
+
+
+        <!-- PAGE HEADER -->
+
+        <header class="topbar">
+
+            <div>
+
+                <h1>
+                    Settings
+                </h1>
+
+                <p>
+                    Manage your restaurant account and application preferences.
+                </p>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= SETTINGS CONTENT ================= -->
+
+        <section class="settings-page">
+
+
+            <!-- =================================================
+                 ADMIN PROFILE
+            ================================================== -->
+
+            <div class="settings-panel">
+
+
+                <div class="settings-panel-header">
+
+                    <div>
+
+                        <h2>
+                            Admin Profile
+                        </h2>
+
+                        <p>
+                            Manage your administrator account information.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="profile-settings">
+
+
+                    <div
+                        class="settings-avatar"
+                        id="settingsAvatar"
+                    >
+                        A
+                    </div>
+
+
+                    <div class="profile-details">
+
+
+                        <div class="settings-field">
+
+                            <label>
+                                Full Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="adminName"
+                                placeholder="Enter your name"
+                            >
+
+                        </div>
+
+
+                        <div class="settings-field">
+
+                            <label>
+                                Email Address
+                            </label>
+
+                            <input
+                                type="email"
+                                id="adminEmail"
+                                placeholder="Enter your email"
+                            >
+
+                        </div>
+
+
+                        <div class="settings-field">
+
+                            <label>
+                                Role
+                            </label>
+
+                            <input
+                                type="text"
+                                value="Restaurant Admin"
+                                readonly
+                            >
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            class="settings-save-btn"
+                            id="saveProfileBtn"
+                        >
+                            Save Profile
+                        </button>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESTAURANT INFORMATION
+            ================================================== -->
+
+            <div class="settings-panel">
+
+
+                <div class="settings-panel-header">
+
+                    <div>
+
+                        <h2>
+                            Restaurant Information
+                        </h2>
+
+                        <p>
+                            Update your restaurant details.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="settings-grid">
+
+
+                    <div class="settings-field">
+
+                        <label>
+                            Restaurant Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="restaurantName"
+                            placeholder="Restaurant name"
+                        >
+
+                    </div>
+
+
+                    <div class="settings-field">
+
+                        <label>
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="restaurantPhone"
+                            placeholder="Phone number"
+                        >
+
+                    </div>
+
+
+                    <div class="settings-field">
+
+                        <label>
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="restaurantEmail"
+                            placeholder="Restaurant email"
+                        >
+
+                    </div>
+
+
+                    <div class="settings-field">
+
+                        <label>
+                            Opening Time
+                        </label>
+
+                        <input
+                            type="time"
+                            id="openingTime"
+                        >
+
+                    </div>
+
+
+                    <div class="settings-field">
+
+                        <label>
+                            Closing Time
+                        </label>
+
+                        <input
+                            type="time"
+                            id="closingTime"
+                        >
+
+                    </div>
+
+
+                    <div class="settings-field">
+
+                        <label>
+                            Currency
+                        </label>
+
+                        <select id="currency">
+
+                            <option value="INR">
+                                Indian Rupee (₹)
+                            </option>
+
+                            <option value="USD">
+                                US Dollar ($)
+                            </option>
+
+                            <option value="EUR">
+                                Euro (€)
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="settings-save-btn"
+                    id="saveRestaurantBtn"
+                >
+                    Save Restaurant Details
+                </button>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 NOTIFICATIONS
+            ================================================== -->
+
+            <div class="settings-panel">
+
+
+                <div class="settings-panel-header">
+
+                    <div>
+
+                        <h2>
+                            Notifications
+                        </h2>
+
+                        <p>
+                            Choose which notifications you want to receive.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="settings-options">
+
+
+                    <!-- LOW STOCK -->
+
+                    <div class="settings-option">
+
+                        <div>
+
+                            <strong>
+                                Low Stock Alerts
+                            </strong>
+
+                            <p>
+                                Get notified when inventory reaches minimum level.
+                            </p>
+
+                        </div>
+
+
+                        <label class="toggle">
+
+                            <input
+                                type="checkbox"
+                                id="lowStockNotifications"
+                            >
+
+                            <span class="toggle-slider"></span>
+
+                        </label>
+
+                    </div>
+
+
+                    <!-- NEW ORDER -->
+
+                    <div class="settings-option">
+
+                        <div>
+
+                            <strong>
+                                New Order Notifications
+                            </strong>
+
+                            <p>
+                                Receive notifications when a new order is placed.
+                            </p>
+
+                        </div>
+
+
+                        <label class="toggle">
+
+                            <input
+                                type="checkbox"
+                                id="newOrderNotifications"
+                            >
+
+                            <span class="toggle-slider"></span>
+
+                        </label>
+
+                    </div>
+
+
+                    <!-- DAILY SALES -->
+
+                    <div class="settings-option">
+
+                        <div>
+
+                            <strong>
+                                Daily Sales Summary
+                            </strong>
+
+                            <p>
+                                Receive a summary of your daily restaurant sales.
+                            </p>
+
+                        </div>
+
+
+                        <label class="toggle">
+
+                            <input
+                                type="checkbox"
+                                id="dailySalesNotifications"
+                            >
+
+                            <span class="toggle-slider"></span>
+
+                        </label>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 SECURITY
+            ================================================== -->
+
+            <div class="settings-panel">
+
+
+                <div class="settings-panel-header">
+
+                    <div>
+
+                        <h2>
+                            Security
+                        </h2>
+
+                        <p>
+                            Manage your account security.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="settings-grid">
+
+
+                    <div class="settings-field">
+
+                        <label>
+                            Current Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="currentPassword"
+                            placeholder="Enter current password"
+                        >
+
+                    </div>
+
+
+                    <div class="settings-field">
+
+                        <label>
+                            New Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="newPassword"
+                            placeholder="Enter new password"
+                        >
+
+                    </div>
+
+
+                    <div class="settings-field">
+
+                        <label>
+                            Confirm New Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            placeholder="Confirm new password"
+                        >
+
+                    </div>
+
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="settings-save-btn"
+                    id="changePasswordBtn"
+                >
+                    Change Password
+                </button>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 ACCOUNT ACTIONS
+            ================================================== -->
+
+            <div class="settings-panel danger-panel">
+
+
+                <div class="settings-panel-header">
+
+                    <div>
+
+                        <h2>
+                            Account Actions
+                        </h2>
+
+                        <p>
+                            Manage your session and account access.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="account-actions">
+
+
+                    <div>
+
+                        <strong>
+                            Logout
+                        </strong>
+
+                        <p>
+                            Sign out from the restaurant management system.
+                        </p>
+
+                    </div>
+
+
+                    <a
+                        href="login.html"
+                        class="logout-btn"
+                        id="logoutBtn"
+                    >
+                        Logout
+                    </a>
+
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+<!-- SETTINGS JAVASCRIPT -->
+
+<script src="settings.js"></script>
+
+</body>
+
+</html>

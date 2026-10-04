@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Reports | Restaurant Management</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+
+</head>
+
+
+<body>
+
+<div class="dashboard-container">
+
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-logo">
+                🍴
+            </div>
+
+            <h2>
+                Restaurant
+            </h2>
+
+        </div>
+
+
+        <nav class="sidebar-menu">
+
+            <p class="menu-title">
+                MAIN
+            </p>
+
+
+            <a href="dashboard.html" class="menu-item">
+                🏠
+                <span>Dashboard</span>
+            </a>
+
+
+            <p class="menu-title">
+                OPERATIONS
+            </p>
+
+
+            <a href="take-order.html" class="menu-item">
+                🧾
+                <span>Take Order</span>
+            </a>
+
+
+            <a href="orders.html" class="menu-item">
+                📋
+                <span>Orders</span>
+            </a>
+
+
+            <a href="menu.html" class="menu-item">
+                🍔
+                <span>Menu</span>
+            </a>
+
+
+            <a href="inventory.html" class="menu-item">
+                📦
+                <span>Inventory</span>
+            </a>
+
+
+            <p class="menu-title">
+                FINANCE
+            </p>
+
+
+            <a href="sales.html" class="menu-item">
+                💰
+                <span>Sales</span>
+            </a>
+
+
+            <a href="expenses.html" class="menu-item">
+                💸
+                <span>Expenses</span>
+            </a>
+
+
+            <a href="profitability.html" class="menu-item">
+                📊
+                <span>Profitability</span>
+            </a>
+
+
+            <p class="menu-title">
+                ANALYTICS
+            </p>
+
+
+            <a href="analytics.html" class="menu-item">
+                📈
+                <span>Analytics</span>
+            </a>
+
+
+            <a href="reports.html" class="menu-item active">
+                📄
+                <span>Reports</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <a href="settings.html" class="menu-item">
+                ⚙️
+                <span>Settings</span>
+            </a>
+
+
+            <a href="login.html" class="menu-item">
+                🚪
+                <span>Logout</span>
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main-content">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div>
+
+                <h1>
+                    Reports
+                </h1>
+
+                <p>
+                    Generate and review detailed restaurant reports.
+                </p>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= REPORT CONTROLS ================= -->
+
+        <section class="reports-toolbar">
+
+
+            <div class="report-filters">
+
+
+                <!-- PERIOD -->
+
+                <select id="reportPeriod">
+
+                    <option value="month">
+                        This Month
+                    </option>
+
+                    <option value="week">
+                        This Week
+                    </option>
+
+                    <option value="year">
+                        This Year
+                    </option>
+
+                    <option value="custom">
+                        Custom Range
+                    </option>
+
+                </select>
+
+
+                <!-- REPORT TYPE -->
+
+                <select id="reportType">
+
+                    <option value="all">
+                        All Reports
+                    </option>
+
+                    <option value="sales">
+                        Sales Report
+                    </option>
+
+                    <option value="expense">
+                        Expense Report
+                    </option>
+
+                    <option value="profit">
+                        Profit Report
+                    </option>
+
+                    <option value="orders">
+                        Order Report
+                    </option>
+
+                </select>
+
+
+                <!-- CUSTOM DATE INPUTS -->
+
+                <input
+                    type="date"
+                    id="customStartDate"
+                    style="
+                        display:none;
+                        padding:11px 12px;
+                        border:1px solid #ddd;
+                        border-radius:10px;
+                        font-size:12px;
+                        color:#555;
+                    "
+                >
+
+
+                <input
+                    type="date"
+                    id="customEndDate"
+                    style="
+                        display:none;
+                        padding:11px 12px;
+                        border:1px solid #ddd;
+                        border-radius:10px;
+                        font-size:12px;
+                        color:#555;
+                    "
+                >
+
+            </div>
+
+
+            <div class="report-actions">
+
+
+                <button
+                    class="generate-btn"
+                    id="generateReportBtn"
+                >
+                    ⚙ Generate Report
+                </button>
+
+
+                <button
+                    class="export-btn"
+                    id="exportReportBtn"
+                >
+                    ⬇ Export
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SUMMARY CARDS ================= -->
+
+        <section class="report-cards">
+
+
+            <!-- SALES -->
+
+            <div class="report-card">
+
+                <div class="report-card-icon">
+                    💰
+                </div>
+
+                <div>
+
+                    <p>
+                        Total Sales
+                    </p>
+
+                    <h2 id="reportSales">
+                        ₹0
+                    </h2>
+
+                    <span
+                        class="positive"
+                        id="reportSalesInfo"
+                    >
+                        Completed orders
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- EXPENSE -->
+
+            <div class="report-card">
+
+                <div class="report-card-icon expense">
+                    💸
+                </div>
+
+                <div>
+
+                    <p>
+                        Total Expenses
+                    </p>
+
+                    <h2 id="reportExpenses">
+                        ₹0
+                    </h2>
+
+                    <span
+                        class="negative"
+                        id="reportExpensesInfo"
+                    >
+                        Paid expenses
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROFIT -->
+
+            <div class="report-card">
+
+                <div class="report-card-icon profit">
+                    📈
+                </div>
+
+                <div>
+
+                    <p>
+                        Net Profit
+                    </p>
+
+                    <h2 id="reportProfit">
+                        ₹0
+                    </h2>
+
+                    <span
+                        class="positive"
+                        id="reportProfitInfo"
+                    >
+                        Revenue − Expenses
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- ORDERS -->
+
+            <div class="report-card">
+
+                <div class="report-card-icon orders">
+                    🧾
+                </div>
+
+                <div>
+
+                    <p>
+                        Total Orders
+                    </p>
+
+                    <h2 id="reportOrders">
+                        0
+                    </h2>
+
+                    <span
+                        class="positive"
+                        id="reportOrdersInfo"
+                    >
+                        Orders in selected period
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= REPORT OVERVIEW ================= -->
+
+        <section class="report-overview">
+
+
+            <div class="report-panel">
+
+
+                <div class="report-panel-header">
+
+                    <div>
+
+                        <h3>
+                            Monthly Financial Report
+                        </h3>
+
+                        <p id="reportDescription">
+                            Sales, expenses and profit summary.
+                        </p>
+
+                    </div>
+
+
+                    <span
+                        class="report-period"
+                        id="reportPeriodLabel"
+                    >
+                        This Month
+                    </span>
+
+                </div>
+
+
+                <!-- REPORT TABLE -->
+
+                <div
+                    class="report-table"
+                    id="reportTable"
+                >
+
+                    <!-- Dynamic report will appear here -->
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= REPORT TYPES ================= -->
+
+        <section class="report-types">
+
+
+            <!-- SALES REPORT -->
+
+            <div class="report-type-card">
+
+                <div class="report-type-icon">
+                    💰
+                </div>
+
+                <div>
+
+                    <h3>
+                        Sales Report
+                    </h3>
+
+                    <p>
+                        Detailed sales and revenue information.
+                    </p>
+
+                </div>
+
+                <button
+                    class="view-report-btn"
+                    data-report="sales"
+                >
+                    View Report →
+                </button>
+
+            </div>
+
+
+            <!-- EXPENSE REPORT -->
+
+            <div class="report-type-card">
+
+                <div class="report-type-icon expense">
+                    💸
+                </div>
+
+                <div>
+
+                    <h3>
+                        Expense Report
+                    </h3>
+
+                    <p>
+                        Track restaurant expenses and spending.
+                    </p>
+
+                </div>
+
+                <button
+                    class="view-report-btn"
+                    data-report="expense"
+                >
+                    View Report →
+                </button>
+
+            </div>
+
+
+            <!-- PROFIT REPORT -->
+
+            <div class="report-type-card">
+
+                <div class="report-type-icon profit">
+                    📊
+                </div>
+
+                <div>
+
+                    <h3>
+                        Profit Report
+                    </h3>
+
+                    <p>
+                        Analyse profitability and margins.
+                    </p>
+
+                </div>
+
+                <button
+                    class="view-report-btn"
+                    data-report="profit"
+                >
+                    View Report →
+                </button>
+
+            </div>
+
+
+            <!-- ORDER REPORT -->
+
+            <div class="report-type-card">
+
+                <div class="report-type-icon orders">
+                    🧾
+                </div>
+
+                <div>
+
+                    <h3>
+                        Order Report
+                    </h3>
+
+                    <p>
+                        Review order activity and performance.
+                    </p>
+
+                </div>
+
+                <button
+                    class="view-report-btn"
+                    data-report="orders"
+                >
+                    View Report →
+                </button>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+<!-- JAVASCRIPT -->
+
+<script src="reports.js"></script>
+
+</body>
+
+</html>

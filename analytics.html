@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Analytics | Restaurant Management</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+
+</head>
+
+
+<body>
+
+<div class="dashboard-container">
+
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-logo">
+                🍴
+            </div>
+
+            <h2>Restaurant</h2>
+
+        </div>
+
+
+        <nav class="sidebar-menu">
+
+            <p class="menu-title">
+                MAIN
+            </p>
+
+            <a href="dashboard.html" class="menu-item">
+                🏠
+                <span>Dashboard</span>
+            </a>
+
+
+            <p class="menu-title">
+                OPERATIONS
+            </p>
+
+            <a href="take-order.html" class="menu-item">
+                🧾
+                <span>Take Order</span>
+            </a>
+
+            <a href="orders.html" class="menu-item">
+                📋
+                <span>Orders</span>
+            </a>
+
+            <a href="menu.html" class="menu-item">
+                🍔
+                <span>Menu</span>
+            </a>
+
+            <a href="inventory.html" class="menu-item">
+                📦
+                <span>Inventory</span>
+            </a>
+
+
+            <p class="menu-title">
+                FINANCE
+            </p>
+
+            <a href="sales.html" class="menu-item">
+                💰
+                <span>Sales</span>
+            </a>
+
+            <a href="expenses.html" class="menu-item">
+                💸
+                <span>Expenses</span>
+            </a>
+
+            <a href="profitability.html" class="menu-item">
+                📊
+                <span>Profitability</span>
+            </a>
+
+
+            <p class="menu-title">
+                ANALYTICS
+            </p>
+
+            <a href="analytics.html" class="menu-item active">
+                📈
+                <span>Analytics</span>
+            </a>
+
+            <a href="reports.html" class="menu-item">
+                📄
+                <span>Reports</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <a href="settings.html" class="menu-item">
+                ⚙️
+                <span>Settings</span>
+            </a>
+
+            <a href="login.html" class="menu-item">
+                🚪
+                <span>Logout</span>
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main-content">
+
+
+        <header class="topbar">
+
+            <div>
+
+                <h1>
+                    Analytics
+                </h1>
+
+                <p>
+                    Understand your restaurant performance and customer trends.
+                </p>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= STAT CARDS ================= -->
+
+        <section class="analytics-cards">
+
+
+            <!-- TOTAL ORDERS -->
+
+            <div class="analytics-card">
+
+                <div class="analytics-icon">
+                    🧾
+                </div>
+
+                <div>
+
+                    <p>
+                        Total Orders
+                    </p>
+
+                    <h2 id="totalOrders">
+                        0
+                    </h2>
+
+                    <span
+                        class="positive"
+                        id="totalOrdersInfo"
+                    >
+                        All recorded orders
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- AVERAGE ORDER VALUE -->
+
+            <div class="analytics-card">
+
+                <div class="analytics-icon blue">
+                    💰
+                </div>
+
+                <div>
+
+                    <p>
+                        Average Order Value
+                    </p>
+
+                    <h2 id="averageOrderValue">
+                        ₹0
+                    </h2>
+
+                    <span
+                        class="positive"
+                        id="averageOrderInfo"
+                    >
+                        Completed orders
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- TOTAL CUSTOMERS -->
+
+            <div class="analytics-card">
+
+                <div class="analytics-icon purple">
+                    👥
+                </div>
+
+                <div>
+
+                    <p>
+                        Total Customers
+                    </p>
+
+                    <h2 id="totalCustomers">
+                        0
+                    </h2>
+
+                    <span
+                        class="positive"
+                        id="customerInfo"
+                    >
+                        Unique customers
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- REPEAT CUSTOMERS -->
+
+            <div class="analytics-card">
+
+                <div class="analytics-icon orange">
+                    🔁
+                </div>
+
+                <div>
+
+                    <p>
+                        Repeat Customers
+                    </p>
+
+                    <h2 id="repeatCustomers">
+                        0
+                    </h2>
+
+                    <span
+                        class="positive"
+                        id="repeatCustomerInfo"
+                    >
+                        Customers with multiple orders
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SALES TREND ================= -->
+
+        <section class="analytics-middle">
+
+
+            <div class="analytics-panel sales-trend">
+
+
+                <div class="analytics-panel-header">
+
+                    <div>
+
+                        <h3>
+                            Sales Trend
+                        </h3>
+
+                        <p>
+                            Monthly sales performance
+                        </p>
+
+                    </div>
+
+
+                    <select id="analyticsPeriod">
+
+                        <option value="thisYear">
+                            This Year
+                        </option>
+
+                        <option value="lastYear">
+                            Last Year
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="analytics-chart">
+
+
+                    <!-- Y AXIS -->
+
+                    <div
+                        class="analytics-y-axis"
+                        id="analyticsYAxis"
+                    >
+                    </div>
+
+
+                    <!-- CHART -->
+
+                    <div class="analytics-chart-area">
+
+                        <div class="analytics-grid">
+                        </div>
+
+
+                        <div
+                            class="analytics-bars"
+                            id="analyticsBars"
+                        >
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= ORDER STATUS ================= -->
+
+            <div class="analytics-panel order-status-panel">
+
+
+                <div class="analytics-panel-header">
+
+                    <div>
+
+                        <h3>
+                            Order Status
+                        </h3>
+
+                        <p>
+                            Current order breakdown
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="status-circle"
+                    id="statusCircle"
+                >
+
+                    <div class="status-circle-content">
+
+                        <strong id="statusTotal">
+                            0
+                        </strong>
+
+                        <span>
+                            Total Orders
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="status-details">
+
+
+                    <div>
+
+                        <span
+                            class="status-dot completed-dot"
+                        ></span>
+
+                        Completed
+
+                        <strong id="completedCount">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span
+                            class="status-dot preparing-dot"
+                        ></span>
+
+                        Preparing
+
+                        <strong id="preparingCount">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span
+                            class="status-dot pending-dot"
+                        ></span>
+
+                        Pending
+
+                        <strong id="pendingCount">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span
+                            class="status-dot cancelled-dot"
+                        ></span>
+
+                        Cancelled
+
+                        <strong id="cancelledCount">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= BOTTOM SECTION ================= -->
+
+        <section class="analytics-bottom">
+
+
+            <!-- ================= TOP SELLING ITEMS ================= -->
+
+            <div class="analytics-panel">
+
+
+                <div class="analytics-panel-header">
+
+                    <div>
+
+                        <h3>
+                            Top Selling Items
+                        </h3>
+
+                        <p>
+                            Most popular menu items
+                        </p>
+
+                    </div>
+
+
+                    <a
+                        href="menu.html"
+                        class="view-link"
+                    >
+                        View Menu →
+                    </a>
+
+                </div>
+
+
+                <div
+                    class="top-items"
+                    id="topItems"
+                >
+
+                    <!-- Dynamic items -->
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= PEAK HOURS ================= -->
+
+            <div class="analytics-panel">
+
+
+                <div class="analytics-panel-header">
+
+                    <div>
+
+                        <h3>
+                            Peak Hours
+                        </h3>
+
+                        <p>
+                            Orders by time of day
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="peak-hours"
+                    id="peakHours"
+                >
+
+                    <!-- Dynamic peak hours -->
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+<!-- ANALYTICS JAVASCRIPT -->
+
+<script src="analytics.js"></script>
+
+</body>
+
+</html>

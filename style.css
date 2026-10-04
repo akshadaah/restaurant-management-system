@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f5ed;
+}
+
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-box {
+    width: 400px;
+    padding: 40px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 15px;
+    background-color: #e8f3e9;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+}
+
+.login-box h1 {
+    text-align: center;
+    color: #155d27;
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.welcome {
+    text-align: center;
+    color: #155d27;
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    padding: 0 12px;
+}
+
+.input-icon {
+    font-size: 17px;
+    margin-right: 10px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 13px 0;
+    border: none;
+    outline: none;
+    font-size: 15px;
+}
+
+.login-box a {
+    display: block;
+    text-align: right;
+    color: #155d27;
+    text-decoration: none;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+.login-box button {
+    width: 100%;
+    padding: 13px;
+    background-color: #155d27;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.login-box button {
+    width: 100%;
+    padding: 13px;
+    background-color: #155d27;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-box button:hover {
+    background-color: #0f461d;
+    transform: translateY(-2px);
+}

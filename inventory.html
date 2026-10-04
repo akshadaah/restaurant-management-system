@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Inventory | Restaurant Management</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+
+</head>
+
+
+<body>
+
+<div class="dashboard-container">
+
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-logo">🍴</div>
+
+            <h2>Restaurant</h2>
+
+        </div>
+
+
+        <nav class="sidebar-menu">
+
+            <p class="menu-title">MAIN</p>
+
+            <a href="dashboard.html" class="menu-item">
+                🏠
+                <span>Dashboard</span>
+            </a>
+
+
+            <p class="menu-title">OPERATIONS</p>
+
+            <a href="take-order.html" class="menu-item">
+                🧾
+                <span>Take Order</span>
+            </a>
+
+            <a href="orders.html" class="menu-item">
+                📋
+                <span>Orders</span>
+            </a>
+
+            <a href="menu.html" class="menu-item">
+                🍔
+                <span>Menu</span>
+            </a>
+
+            <a href="inventory.html" class="menu-item active">
+                📦
+                <span>Inventory</span>
+            </a>
+
+
+            <p class="menu-title">FINANCE</p>
+
+            <a href="sales.html" class="menu-item">
+                💰
+                <span>Sales</span>
+            </a>
+
+            <a href="expenses.html" class="menu-item">
+                💸
+                <span>Expenses</span>
+            </a>
+
+            <a href="profitability.html" class="menu-item">
+                📊
+                <span>Profitability</span>
+            </a>
+
+
+            <p class="menu-title">ANALYTICS</p>
+
+            <a href="analytics.html" class="menu-item">
+                📈
+                <span>Analytics</span>
+            </a>
+
+            <a href="reports.html" class="menu-item">
+                📄
+                <span>Reports</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <a href="settings.html" class="menu-item">
+                ⚙️
+                <span>Settings</span>
+            </a>
+
+            <a href="login.html" class="menu-item logout">
+                🚪
+                <span>Logout</span>
+            </a>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main-content">
+
+
+        <header class="topbar">
+
+            <div>
+
+                <h1>Inventory</h1>
+
+                <p>
+                    Track and manage your restaurant stock.
+                </p>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- ================= SUMMARY ================= -->
+
+        <section class="inventory-summary">
+
+
+            <div class="inventory-stat-card">
+
+                <div class="inventory-stat-icon">
+                    📦
+                </div>
+
+                <div>
+
+                    <p>Total Items</p>
+
+                    <h2 id="totalItems">0</h2>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="inventory-stat-card">
+
+                <div class="inventory-stat-icon low">
+                    ⚠️
+                </div>
+
+                <div>
+
+                    <p>Low Stock</p>
+
+                    <h2 id="lowStock">0</h2>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="inventory-stat-card">
+
+                <div class="inventory-stat-icon danger">
+                    ❌
+                </div>
+
+                <div>
+
+                    <p>Out of Stock</p>
+
+                    <h2 id="outOfStock">0</h2>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="inventory-stat-card">
+
+                <div class="inventory-stat-icon value">
+                    💰
+                </div>
+
+                <div>
+
+                    <p>Stock Value</p>
+
+                    <h2 id="stockValue">₹0</h2>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ================= TOOLBAR ================= -->
+
+        <section class="inventory-section">
+
+
+            <div class="inventory-toolbar">
+
+
+                <div class="inventory-search">
+
+                    <input
+                        type="text"
+                        id="inventorySearch"
+                        placeholder="🔍 Search inventory..."
+                    >
+
+                </div>
+
+
+
+                <div class="inventory-actions">
+
+                    <select id="categoryFilter">
+
+                        <option value="All">All Categories</option>
+
+                        <option value="Vegetables">Vegetables</option>
+
+                        <option value="Dairy">Dairy</option>
+
+                        <option value="Grains">Grains</option>
+
+                        <option value="Meat">Meat</option>
+
+                        <option value="Beverages">Beverages</option>
+
+                        <option value="Other">Other</option>
+
+                    </select>
+
+
+                    <button
+                        class="add-stock-btn"
+                        id="addStockBtn"
+                    >
+                        + Add Stock
+                    </button>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ================= INVENTORY PANEL ================= -->
+
+            <div class="inventory-panel">
+
+
+                <div class="inventory-panel-header">
+
+                    <div>
+
+                        <h2>Inventory Items</h2>
+
+                        <p>
+                            Current stock levels and availability.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="inventory-table">
+
+
+                    <!-- HEADER -->
+
+                    <div class="inventory-row inventory-heading">
+
+                        <span>Item</span>
+
+                        <span>Category</span>
+
+                        <span>Current Stock</span>
+
+                        <span>Minimum Level</span>
+
+                        <span>Unit</span>
+
+                        <span>Status</span>
+
+                        <span>Action</span>
+
+                    </div>
+
+
+                    <!-- DYNAMIC ROWS -->
+
+                    <div id="inventoryRows"></div>
+
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+
+<!-- ==================================================
+     ADD / UPDATE MODAL
+================================================== -->
+
+<div class="inventory-modal" id="inventoryModal">
+
+
+    <div class="inventory-modal-content">
+
+
+        <div class="inventory-modal-header">
+
+            <div>
+
+                <h2 id="modalTitle">
+                    Add Inventory Item
+                </h2>
+
+                <p id="modalSubtitle">
+                    Add a new item to your inventory.
+                </p>
+
+            </div>
+
+
+            <button
+                class="modal-close"
+                id="modalClose"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+
+        <form id="inventoryForm">
+
+
+            <div class="inventory-form-grid">
+
+
+                <div class="inventory-form-group">
+
+                    <label>Item Name</label>
+
+                    <input
+                        type="text"
+                        id="itemName"
+                        placeholder="e.g. Cheese"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="inventory-form-group">
+
+                    <label>Category</label>
+
+                    <select id="itemCategory" required>
+
+                        <option value="">
+                            Select Category
+                        </option>
+
+                        <option value="Vegetables">
+                            Vegetables
+                        </option>
+
+                        <option value="Dairy">
+                            Dairy
+                        </option>
+
+                        <option value="Grains">
+                            Grains
+                        </option>
+
+                        <option value="Meat">
+                            Meat
+                        </option>
+
+                        <option value="Beverages">
+                            Beverages
+                        </option>
+
+                        <option value="Other">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <div class="inventory-form-group">
+
+                    <label>Current Stock</label>
+
+                    <input
+                        type="number"
+                        id="itemStock"
+                        min="0"
+                        step="0.01"
+                        placeholder="e.g. 10"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="inventory-form-group">
+
+                    <label>Minimum Level</label>
+
+                    <input
+                        type="number"
+                        id="itemMinimum"
+                        min="0"
+                        step="0.01"
+                        placeholder="e.g. 5"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="inventory-form-group">
+
+                    <label>Unit</label>
+
+                    <select id="itemUnit" required>
+
+                        <option value="">
+                            Select Unit
+                        </option>
+
+                        <option value="kg">kg</option>
+
+                        <option value="litre">litre</option>
+
+                        <option value="bottles">bottles</option>
+
+                        <option value="pieces">pieces</option>
+
+                        <option value="packets">packets</option>
+
+                        <option value="boxes">boxes</option>
+
+                    </select>
+
+                </div>
+
+
+
+                <div class="inventory-form-group">
+
+                    <label>Cost Per Unit (₹)</label>
+
+                    <input
+                        type="number"
+                        id="itemCost"
+                        min="0"
+                        step="0.01"
+                        placeholder="e.g. 250"
+                        required
+                    >
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="inventory-modal-actions">
+
+                <button
+                    type="button"
+                    class="modal-cancel-btn"
+                    id="modalCancel"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    class="modal-save-btn"
+                >
+                    Save Item
+                </button>
+
+            </div>
+
+
+        </form>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- ==================================================
+     DELETE CONFIRMATION MODAL
+================================================== -->
+
+<div class="inventory-modal" id="deleteModal">
+
+
+    <div class="delete-modal-content">
+
+
+        <div class="delete-icon">
+            🗑️
+        </div>
+
+
+        <h2>Delete Item?</h2>
+
+        <p>
+            Are you sure you want to delete
+            <strong id="deleteItemName"></strong>?
+        </p>
+
+
+        <div class="inventory-modal-actions">
+
+            <button
+                type="button"
+                class="modal-cancel-btn"
+                id="deleteCancel"
+            >
+                Cancel
+            </button>
+
+            <button
+                type="button"
+                class="modal-delete-btn"
+                id="deleteConfirm"
+            >
+                Delete
+            </button>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<script src="inventory.js"></script>
+
+</body>
+
+</html>
